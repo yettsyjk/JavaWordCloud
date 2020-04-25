@@ -1,0 +1,11 @@
+Roles and Responsibilities include, but are not limited to:
+Collaborate with cross-functional teams throughout the organization and provide recommendations for the overall security posture.
+Participate in the Software Development Lifecycle in an Agile (SCRUM) environment
+Work with customer and agile teams to decompose epics/requirements into user stories
+Architect and design software applications
+Develop and Code software to meet user stories
+Integrate and test code and software systems
+Support peer review, design review, and retrospectives to improve quality and performance
+Document standards, processes, design, test, and operations
+Ability to integrate and manage Oracle DB's into development projects
+Knowledge of ServiceMix, Elastics, and Jira desired
