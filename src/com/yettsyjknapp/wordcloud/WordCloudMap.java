@@ -1,10 +1,11 @@
 package com.yettsyjknapp.wordcloud;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.io.*;
-import java.util.*;
 
 
 public class WordCloudMap {
@@ -28,11 +29,37 @@ public class WordCloudMap {
 			populateFromFile(urlOrFile);
 		}
 		QuickSortWords qsort = new QuickSortWord(map);//returns sorted array
-		return q.sort.getSortedArray();
+		return qsort.getSortedArray();
 	}
 	
+	private void populateFromUrl(String urlName) throws IOException {
+		
+		URL url = new URL(urlName);
+		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInoutStream(fileName) ) );
+		bufferedReaderParser = new BufferedReaderFileParser();
+		
+		bufferedReaderParser.parse(in,  this);
+		in.close();
+		
+	}
 	
+	public void validateWord(String word) {
+		//calculated case sensitive
+		if(!stopWordMap.containsKey(word.toLowerCase() ) )
+			put(word);
+	}
 	
+	private Word put(String key) {
+		Word word;
+		if(map.containsKey(key) ) {
+			word = map.get(key);
+			int value = word.getFrequency();
+			word.setFrequency(++value);
+		} else {
+			word = new Word(key);
+		}
+		return map.put(key, word);
+	}
 	
 	
 	
