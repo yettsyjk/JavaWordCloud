@@ -7,6 +7,14 @@ public class Word {
 	public static int MAX_FONT_SIZE = 100;
 	public static int[] FONT_TYPE = {Font.PLAIN, Font.ITALIC, Font.BOLD};
 	
+	public String getWord() {
+		return word;
+	}
+
+	public void setWord(String word) {
+		this.word = word;
+	}
+
 	public static String[] FONT_STYLE = { Font.SANS_SERIF, Font.MONOSPACED };
 	
 	public static Color[] TEXT_COLOR =  { Color.BLACK, Color.GRAY, Color.GREEN };
