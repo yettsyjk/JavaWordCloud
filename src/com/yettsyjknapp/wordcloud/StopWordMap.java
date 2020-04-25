@@ -1,5 +1,9 @@
 package com.yettsyjknapp.wordcloud;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +28,23 @@ public class StopWordMap {
 		
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filename) ));
 		String word;
+		
+		while((word = bufferedReader.readLine())!= null ) {
+			if(!map.containsKey(word))
+				map.put(word, 0);
+		}
+		bufferedReader.close();
+		
+	}
+	//delegate job to the map
+	public boolean containsKey(Object key) {
+	return map.containsKey(key);
+	}
+	/*TESTING*/
+	private void display() {
+		for(Map.Entry<String, Integer> word: map.entrySet()) {
+			System.out.println(word.getKey()+ " " + word.getValue());
+		}
 	}
 	
 }

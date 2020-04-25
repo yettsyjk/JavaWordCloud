@@ -6,7 +6,7 @@ import java.io.*;
 public class BufferedReaderFileParser implements BufferedReaderParser {
 
 	@Override
-	public void parse(BufferedReader in, WordCloudMap wcm) throws  {
+	public void parse(BufferedReader in, WordCloudMap wcm) throws IOException {
 		
 		
 		StringBuilder word = new StringBuilder();
@@ -14,11 +14,12 @@ public class BufferedReaderFileParser implements BufferedReaderParser {
 		
 		
 		int intChar;
-		while( (intChar = in.read() != -1 )) {
+		while( (intChar = in.read()) != -1 ) {
 			
 			if(wordValidator.validate(word, intChar) ) {
+				//inserting into map
 				wcm.validateWord(word.toString());
-				
+				//removing previous word
 				word.setLength(0);
 				
 			}

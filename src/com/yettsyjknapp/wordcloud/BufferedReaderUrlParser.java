@@ -3,7 +3,7 @@ package com.yettsyjknapp.wordcloud;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class BufferedReaderUrlParser implements BufferedReaderPArser {
+public class BufferedReaderUrlParser implements BufferedReaderParser {
 
 	@Override
 	public void parse(BufferedReader in, WordCloudMap wcm) throws IOException {

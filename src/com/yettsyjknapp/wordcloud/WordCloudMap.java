@@ -1,6 +1,7 @@
 package com.yettsyjknapp.wordcloud;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -28,20 +29,29 @@ public class WordCloudMap {
 		} else {
 			populateFromFile(urlOrFile);
 		}
-		QuickSortWords qsort = new QuickSortWord(map);//returns sorted array
+		QuickSortWords qsort = new QuickSortWords(map);//returns sorted array
 		return qsort.getSortedArray();
 	}
 	
 	private void populateFromUrl(String urlName) throws IOException {
 		
 		URL url = new URL(urlName);
-		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInoutStream(fileName) ) );
+		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()) );
 		bufferedReaderParser = new BufferedReaderFileParser();
 		
 		bufferedReaderParser.parse(in,  this);
 		in.close();
 		
 	}
+	
+	private void populateFromFile(String fileName) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileName) ) );
+		bufferedReaderParser = new BufferedReaderFileParser();
+		
+		bufferedReaderParser.parse(in, this);
+		in.close();
+	}
+	
 	
 	public void validateWord(String word) {
 		//calculated case sensitive

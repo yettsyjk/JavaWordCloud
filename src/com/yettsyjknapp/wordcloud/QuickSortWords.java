@@ -12,6 +12,7 @@ package com.yettsyjknapp.wordcloud;
 import java.util.Map;
 
 public class QuickSortWords {
+	
 	private Word[] words;
 	
 	public QuickSortWords(Map<String, Word> map) {
@@ -32,7 +33,7 @@ public class QuickSortWords {
 			words[counter++] = entry.getValue();
 			}
 	}
-	//display() from QuickSOrt is not used locally
+	//display() from QuickSort is not used locally
 	private void display() {
 		for(int i =0; i <words.length; i++) {
 			System.out.println(words[i].getWord() + " " + words[i].getFrequency() + "\n");
